@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Free Books</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .maindiv{
+        width:100%;
+        min-height: 100vh;
+        height: 100%;
+        padding:0 0 20px;
+        background: linear-gradient(to right,rgb(144, 14, 204),rgb(88, 8, 88));
+    }
+    .centerdiv{
+        text-align: center;
+        padding:20px;
+        font-family: sans-serif;
+    }
+    h1{
+        margin:10px 0 30px;
+        font-size:35px;
+        color:rgba(255,255,255,.85);
+    }
+    input{
+        border:2px solid white;
+        width:300px;
+        height:55px;
+        color:white;
+        font-size: 30px;
+        padding:10px;
+        background-color:teal;
+        box-shadow: 2px 3px 9px black;
+        margin:0 0 40px;
+    }
+    input::placeholder{
+        color:rgba(255,255,255,.85);
+    }
+    ul{
+        color:white;
+        list-style-type: none;
+    }
+    li{
+        text-align: center;
+        background-color:rgba(255,255,255,.67);
+        padding:15px;
+        margin:8px;
+        font-size:18px;
+        transition: 0.3s;
+    }
+    a{
+        width:100%;
+        height: 100%;
+        color:black;
+        text-decoration: none;
+
+    }
+    .copy{
+        margin:20px 0 0;
+        padding:15px;
+        background-color:black;
+        color:white;
+        width:100%;
+        text-align:center;
+        font-family: verdana;
+    }
+    .copy a{
+        color:teal;
+    }
+    li:hover a{
+        color:red;
+    }
+    li:hover{
+        background-color: blue;
+    }
+    @media (min-width:992px){
+        ul{
+            width:40%;
+            margin:0 auto;
+        }
+    }
+</style>
+<body>
+    <div class="maindiv">
+        <div class="centerdiv">
+            <h1>Language Tutorials</h1>
+            <input type="text" id="searchbox" placeholder="Search.....">
+            <ul id="lists">
+                <li><a href="course/c.pdf">C</a></li>
+                <li><a href="course/cpp.pdf">C++</a></li>
+                <li><a href="course/css.pdf">Css</a></li>
+                <li><a href="course/html.pdf">Html</a></li>
+                <li><a href="course/java.pdf">Java</a></li>
+                <li><a href="course/javascript.pdf">JavaScript</a></li>
+                <li><a href="course/jquary.pdf">jQuery</a></li>
+                <li><a href="course/php.pdf">Php</a></li>
+                <li><a href="course/python.pdf">Python</a></li>
+                <li><a href="course/sql.pdf">Sql</a></li>
+                <li><a href="course/xml.pdf">Xml</a></li>
+            </ul>
+        </div>
+        <div class="copy">Made By <a href="https://yourwebsite.github.io/">Sandip Sadhukhan</a> .</div>
+    </div>
+    <script>
+        console.clear();
+        document.getElementById('searchbox').focus();
+        document.getElementById('searchbox').addEventListener('input',function(){
+            searchtext=(document.getElementById('searchbox').value).toUpperCase();
+            ul=document.getElementById('lists');
+            li=ul.getElementsByTagName('li');
+            a=ul.getElementsByTagName('a');
+            for(let i=0;i<a.length;i++){
+                value=(a[i].textContent).toUpperCase();
+                if(value.indexOf(searchtext)>-1){
+                    li[i].style.display="";
+                }
+                else
+                li[i].style.display="none";
+            }
+        })
+    </script>
+</body>
+</html>
